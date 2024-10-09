@@ -1,0 +1,87 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.fan{
+    position: relative;
+    width:150px;
+    height:150px;
+    border-radius: 50px;
+    background-color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: spin 1s infinite linear;
+    transform-style: preserve-3d;
+    
+}
+.fan::after{
+    position: absolute;
+    content: '';
+    width: 100px;
+    height:100px;
+    background-color: #fff;
+    border-radius: 50px;
+    border: 15px solid blueviolet;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.5);
+}
+.blade{
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: #fff;
+    border-radius: 50px;
+    transform-origin: 50% 50%;
+    box-shadow: 0px 20px rgba(0,0,0,0.5);
+}
+.blade:nth-child(1){
+    transform: rotate(0) translate(150px) rotate(0);
+
+}
+.blade:nth-child(2){
+    transform: rotate(120deg) translate(150px) rotate(0);
+
+}
+.blade:nth-child(3){
+    transform: rotate(240deg) translate(150px) rotate(0);
+
+}
+input[type="checkbox"]{
+    position: absolute;
+    bottom: 40px;
+    width: 40px;
+    height:40px;
+}
+input[type="checkbox"]+ .fan{
+    animation-play-state: running;
+}
+
+input[type="checkbox"]:checked + .fan{
+    animation-play-state: paused;
+}
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
